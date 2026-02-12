@@ -1,9 +1,10 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Button } from 'react-native-web';
 import Demo from './demo';
+import { styles } from '../styles/commonstyles';
 
 const Profile = () => {
   const router = useRouter();
@@ -13,10 +14,14 @@ const Profile = () => {
       Setcounter(counter - 1)
     }
   }
+ useEffect(()=>{
+console.log('Value of the counter',counter)
+ },[counter])
+
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Profile</Text>
+      <Text style={{fontSize:30,color:'blue'}}>Profile</Text>
 
       <Pressable style={styles.button1} onPress={() => router.push('/')}>
         <Text style={styles.buttonText}>Back</Text>
@@ -39,29 +44,29 @@ const Profile = () => {
 
 export default Profile
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button1: {
-    marginTop: 16,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#0eff3aff',
-    borderRadius: 6,
-  },
-  button2: {
-    marginTop: 16,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#ed0505ff',
-    borderRadius: 6,
-    marginTop: 30
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: '600',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   button1: {
+//     marginTop: 16,
+//     paddingHorizontal: 20,
+//     paddingVertical: 10,
+//     backgroundColor: '#0eff3aff',
+//     borderRadius: 6,
+//   },
+//   button2: {
+//     marginTop: 16,
+//     paddingHorizontal: 20,
+//     paddingVertical: 10,
+//     backgroundColor: '#ed0505ff',
+//     borderRadius: 6,
+//     marginTop: 30
+//   },
+//   buttonText: {
+//     color: '#fff',
+//     fontWeight: '600',
+//   },
+// });

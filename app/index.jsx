@@ -3,6 +3,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Button } from 'react-native-web';
+import {styles} from "../styles/commonstyles"
+// import styles from "../styles/commonstyles"
 
 const Index = () => {
   const router = useRouter();
@@ -24,18 +26,18 @@ const Index = () => {
 
 export default Index;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,              
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    padding: 12,
-    backgroundColor: 'black',
-    marginVertical: 10,
-  },
-  buttonText: {
-    color: 'white',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,              
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   button: {
+//     padding: 12,
+//     backgroundColor: 'black',
+//     marginVertical: 10,
+//   },
+//   buttonText: {
+//     color: 'white',
+//   },
+// });
