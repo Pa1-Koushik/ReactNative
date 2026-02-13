@@ -9,6 +9,7 @@ import { styles } from '../styles/commonstyles';
 const Profile = () => {
   const router = useRouter();
   const [counter, Setcounter] = useState(0)
+  const user ="anil"
   const updatehandler = () => {
     if (counter > 0) {
       Setcounter(counter - 1)
