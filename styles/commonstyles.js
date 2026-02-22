@@ -33,4 +33,19 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
+  containerr: {
+    flexDirection: "row",   
+    justifyContent: "flex-start", 
+    marginTop: 150,
+    marginLeft:50
+  },
+  buttonWrapper: {
+    marginRight: 8, 
+  },
+   row: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+    gap: 10, 
+   }
 });
