@@ -59,7 +59,7 @@ return (
         style={{ borderWidth: 1, padding: 10 }}
       />
     </View>
-    <Pressable style={styles.button1} onPress={() => router.push('/hooks')}>
+    <Pressable style={styles.button1} onPress={() => router.push('/forms')}>
       <Text style={styles.buttonText}>Next</Text>
     </Pressable>
 
