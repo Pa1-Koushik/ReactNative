@@ -2,10 +2,25 @@ import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import Formcomponents from "../components/formcomponents";
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup";
 
+const schema = yup.object({
+  username: yup.string().required("UserName is required").min(3, "It must be 3 characters"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
+      "Enter a valid email address"
+    ),
+  password: yup.string().required("Password is required").min(8, "minimum 8 character are required")
+})
 
 const Hookforms=()=>{
-  const {control,handleSubmit,formState:{errors}} = useForm()
+  const {control,handleSubmit,formState:{errors}} = useForm({resolver: yupResolver(schema)})
+
+  console.log(errors)
 
   const submit=(data)=>{
     console.log(data)
@@ -15,15 +30,25 @@ const Hookforms=()=>{
         <Formcomponents 
         control={control} 
         itsname={'username'}
-         placeholder={"Enter your name"} />
+         placeholder={"Enter your name"} 
+         errors={errors}
+         />
+         
         <Formcomponents 
         control={control}
          itsname={'email'}
-        placeholder={"Enter your email"} />
+        placeholder={"Enter your email"}
+        errors={errors}
+        />
+
         <Formcomponents
-         control={control}
+          control={control}
           itsname={'password'}
-          placeholder={"Enter your password"} />
+          placeholder={"Enter your password"}
+          secureTextEntry={true}
+          errors={errors}
+        />
+
         {/* <Controller
         name ='username'
           control={control}
@@ -39,6 +64,7 @@ const Hookforms=()=>{
         rules={{required:true,minLength:3}}
         />
         {errors.username && <Text style={{color:'red',fontSize:10}}>Please enter valid name</Text>} */}
+
          {/* <Controller
          name ='email'
           control={control}

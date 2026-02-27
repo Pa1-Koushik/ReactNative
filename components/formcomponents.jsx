@@ -2,8 +2,9 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import { Controller } from 'react-hook-form'
 
-const Formcomponents = ({itsname,placeholder,control}) => {
+const Formcomponents = ({ errors, itsname, placeholder, control, ...props }) => {
     return (
+        <>
             <Controller
                 name={itsname}
                 control={control}
@@ -14,9 +15,15 @@ const Formcomponents = ({itsname,placeholder,control}) => {
                         value={value}
                         onChangeText={onChange}
                         onBlur={onBlur}
+                        {...props}
+
                     />
                 )}
             />
+            {errors && errors[itsname] && <Text style={styles.error}>{errors[itsname]?.message}</Text>}
+        </>
+
+
     )
 }
 
@@ -38,4 +45,8 @@ const styles = StyleSheet.create({
         elevation: 5,
         marginBottom: 20,
     },
+    error: {
+        color: "red",
+        marginBottom: 10
+    }
 })
