@@ -3,23 +3,23 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Button } from 'react-native-web';
-import {styles} from "../styles/commonstyles"
+import { styles } from "../styles/commonstyles"
 // import styles from "../styles/commonstyles"
 
 const Index = () => {
   const router = useRouter();
-  const [Username,SetUsername] = useState({name:'Arun',age:26})
+  const [Username, SetUsername] = useState({ name: 'Arun', age: 26 })
 
   return (
     <SafeAreaView style={styles.container}>
       <Text>Home</Text>
-     
-      <Pressable style={styles.button} onPress={()=>router.push('/profile')}>
+
+      <Pressable style={styles.button} onPress={() => router.push('/profile')}>
         <Text style={styles.buttonText}>Next</Text>
       </Pressable>
       <Text>My name is {Username.name}</Text>
-        <Text>My age is {Username.age}</Text>
-        <Button title='Update Details' onPress={()=>SetUsername({name:"PK",age:25})} ></Button>
+      <Text>My age is {Username.age}</Text>
+      <Button title='Update Details' onPress={() => SetUsername({ name: "PK", age: 25 })} ></Button>
     </SafeAreaView>
   );
 };
@@ -28,7 +28,7 @@ export default Index;
 
 // const styles = StyleSheet.create({
 //   container: {
-//     flex: 1,              
+//     flex: 1,
 //     justifyContent: 'center',
 //     alignItems: 'center',
 //   },
